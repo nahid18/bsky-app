@@ -56,13 +56,12 @@ function App() {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: (data: z.infer<typeof schema>) => {
-      const formData = new FormData();
-      formData.append("handle", data.handle);
-      formData.append("password", data.password);
-      formData.append("follow", data.follow);
       const response = fetch("https://bsky-migrate.onrender.com/follow", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
       return response;
     },
@@ -146,28 +145,30 @@ function App() {
           {isLoading ? (
             <Spinner color="primary" />
           ) : (
-            <Button
-              className="max-w-sm mt-4"
-              size="lg"
-              color="primary"
-              type="submit"
-            >
-              Follow on bsky
-            </Button>
+            <>
+              <Button
+                className="max-w-sm mt-4"
+                size="lg"
+                color="primary"
+                type="submit"
+              >
+                Follow on bsky
+              </Button>
+              <Button
+                className="max-w-sm"
+                size="lg"
+                color="default"
+                type="reset"
+                onClick={() => {
+                  localStorage.removeItem("handle");
+                  localStorage.removeItem("password");
+                  reset();
+                }}
+              >
+                Clear Form
+              </Button>
+            </>
           )}
-          <Button
-            className="max-w-sm"
-            size="lg"
-            color="default"
-            type="reset"
-            onClick={() => {
-              localStorage.removeItem("handle");
-              localStorage.removeItem("password");
-              reset();
-            }}
-          >
-            Clear Form
-          </Button>
         </div>
         <div className="flex flex-col gap-1 mt-8 justify-center items-center">
           <div className="font-medium">Accounts Followed So Far</div>

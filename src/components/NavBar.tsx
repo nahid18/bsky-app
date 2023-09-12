@@ -19,14 +19,15 @@ export default function NavBar() {
             href="https://github.com/nahid18/bsky-follow-API"
             target="_blank"
             rel="noopener noreferrer"
+            color="secondary"
           >
-            API Doc
+            REST API
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Button
             as={Link}
-            color="primary"
+            color="secondary"
             href="https://github.com/nahid18/bsky-app"
             variant="flat"
             target="_blank"
