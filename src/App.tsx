@@ -186,7 +186,7 @@ function App() {
         </div>
       </form>
 
-      <footer className="absolute bottom-0 left-0 right-0 flex justify-center items-center gap-2 p-8">
+      <footer className="mt-4 flex justify-center items-center gap-2 p-8">
         Developed by
         <Link
           href="https://twitter.com/abdnahid_"
