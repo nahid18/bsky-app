@@ -1,9 +1,9 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { EyeSlashFilledIcon } from "./components/EyeSlashFilledIcon";
 import { EyeFilledIcon } from "./components/EyeFilledIcon";
+import { Button, Link, Textarea } from "@nextui-org/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Textarea } from "@nextui-org/react";
 import { Spinner } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import NavBar from "./components/NavBar";
@@ -13,9 +13,9 @@ import React from "react";
 import * as z from "zod";
 
 const schema = z.object({
-  handle: z.string().min(2, { message: "Required" }),
-  password: z.string().min(2, { message: "Required" }),
-  follow: z.string().min(2, { message: "Required" }),
+  handle: z.string().min(2, { message: "Handle is required!" }),
+  password: z.string().min(2, { message: "Password is required!" }),
+  follow: z.string().min(2, { message: "Accounts to follow are required!" }),
 });
 
 function App() {
@@ -90,12 +90,14 @@ function App() {
       <NavBar />
       <form
         onSubmit={handleSubmit(handleFollow)}
-        className="grid place-items-center grid-cols-1 gap-3 mt-14"
+        className="grid place-items-center grid-cols-1 gap-3 mt-6"
       >
         <div className="font-bold text-2xl">bsky follow</div>
-        <div className="flex flex-col italic">
-          <div>No need to put the entire @MYHANDLE.social.app</div>
-          <div>just enter the MYHANDLE part</div>
+        <div className="text-sm bg-blue-100 border rounded-md text-blue-700 border-blue-700 max-w-sm p-3 leading-6">
+          <div>Enter the MYHANDLE part instead of @MYHANDLE.social.app</div>
+        </div>
+        <div className="text-sm bg-yellow-100 border rounded-md text-yellow-700 border-yellow-700 max-w-sm p-3 leading-6 mb-4">
+          <div>No personal information is stored</div>
         </div>
         <Input
           type="text"
@@ -141,13 +143,13 @@ function App() {
         />
         <span className="max-w-sm text-red-500">{errors.follow?.message}</span>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-[8px]">
           {isLoading ? (
             <Spinner color="primary" />
           ) : (
             <>
               <Button
-                className="max-w-sm mt-4"
+                className="max-w-sm mt-2"
                 size="lg"
                 color="primary"
                 type="submit"
@@ -170,7 +172,7 @@ function App() {
             </>
           )}
         </div>
-        <div className="flex flex-col gap-1 mt-8 justify-center items-center">
+        <div className="flex flex-col gap-1 mt-4 justify-center items-center">
           <div className="font-medium">Accounts Followed So Far</div>
           <div className="font-bold text-4xl text-pink-600">
             <CountUp start={0} end={parseInt(data?.result)} delay={0}>
@@ -183,6 +185,18 @@ function App() {
           </div>
         </div>
       </form>
+
+      <footer className="absolute bottom-0 left-0 right-0 flex justify-center items-center gap-2 p-8">
+        Developed by
+        <Link
+          href="https://twitter.com/abdnahid_"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="primary"
+        >
+          <span>@abdnahid_</span>
+        </Link>
+      </footer>
     </>
   );
 }
