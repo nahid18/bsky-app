@@ -94,7 +94,7 @@ function App() {
       >
         <div className="font-bold text-2xl">bsky follow</div>
         <div className="text-sm bg-blue-100 border rounded-md text-blue-700 border-blue-700 max-w-sm p-3 leading-6">
-          <div>Enter the MYHANDLE part instead of @MYHANDLE.social.app</div>
+          <div>Enter MYHANDLE instead of @MYHANDLE.social.app</div>
         </div>
         <div className="text-sm bg-yellow-100 border rounded-md text-yellow-700 border-yellow-700 max-w-sm p-3 leading-6 mb-4">
           <div>No personal information is stored</div>
