@@ -154,7 +154,7 @@ function App() {
                 color="primary"
                 type="submit"
               >
-                Follow on bsky
+                Submit
               </Button>
               <Button
                 className="max-w-sm"
