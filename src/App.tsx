@@ -143,13 +143,13 @@ function App() {
         />
         <span className="max-w-sm text-red-500">{errors.follow?.message}</span>
 
-        <div className="flex flex-col gap-[8px]">
+        <div className="flex flex-row-reverse gap-[8px] mt-2">
           {isLoading ? (
             <Spinner color="primary" />
           ) : (
             <>
               <Button
-                className="max-w-sm mt-2"
+                className="max-w-sm"
                 size="lg"
                 color="primary"
                 type="submit"
