@@ -172,8 +172,8 @@ function App() {
             </>
           )}
         </div>
-        <div className="flex flex-col gap-1 mt-4 justify-center items-center">
-          <div className="font-medium">Accounts Followed So Far</div>
+        <div className="flex flex-col gap-1 mt-8 justify-center items-center">
+          <div className="font-semibold">Accounts Followed So Far</div>
           <div className="font-bold text-4xl text-pink-600">
             <CountUp start={0} end={parseInt(data?.result)} delay={0}>
               {({ countUpRef }) => (
@@ -186,7 +186,7 @@ function App() {
         </div>
       </form>
 
-      <footer className="mt-4 flex justify-center items-center gap-2 p-8">
+      <footer className="mt-4 flex justify-center items-center gap-2 p-6">
         Developed by
         <Link
           href="https://twitter.com/abdnahid_"
