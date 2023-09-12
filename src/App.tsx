@@ -133,7 +133,7 @@ function App() {
           {errors.password?.message}
         </span>
         <Textarea
-          label="Accounts to follow"
+          label="accounts to follow"
           variant="bordered"
           size="lg"
           labelPlacement="outside"
