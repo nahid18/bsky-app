@@ -20,7 +20,7 @@
     "react-hook-form": "^7.46.1",
     "react-hot-toast": "^2.4.1",
     "react-query": "^3.39.3",
-    "zod": "^3.22.2"
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.34.1",
